@@ -6,6 +6,13 @@ terminal as needed. This is very similar to <code>cut -c1-${COLUMNS}</code>
 except that this script attempts to understand a limited set of terminal escape
 sequences so that colorized output isn't prematurely truncated.
 
+Example
+=======
+Cut the output of git log at window width
+
+    nline=$(expr $(tput lines) - 1)
+    git --no-pager log | nowrap | head -n $nline
+
 *Author*: Dave Goodell <davidjgoodell@gmail.com>
 
 -----------------------------------------------------------------------
